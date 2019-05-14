@@ -1,10 +1,10 @@
 {
-  "name": "cianbox/cianbox-php",
+  "name": "gonzalesc/cianbox-php",
   "description": "Cliente Culqi API para PHP",
   "keywords": ["cianbox", "client", "api", "php", "payments", "pagos", "woocommerce"],
   "homepage": "https://cianbox.com",
   "type": "library",
-  "license": "MIT",
+  "license": "GPL-2.0+",
   "authors": [
     {
       "name": "Gonzalesc",
