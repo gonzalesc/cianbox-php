@@ -70,6 +70,8 @@ class InvalidToken extends CianboxException {
 /**
  * Unable to connect to Cianbox API
  */
+namespace Cianbox\Error;
+
 class UnableToConnect extends CianboxException {
     protected $message = "Can not connect to Cianbox API";
 }

@@ -8,7 +8,7 @@ use Cianbox\Error as Errors;
  *
  * @package Cianbox
  */
-class Cianbo {
+class Cianbox {
 	public $options;
 	public $api_url;
 	/**
@@ -45,7 +45,7 @@ class Cianbo {
 		  throw new Errors\InvalidOptions();
 		}
 
-		$this->api_url = BASE_URL . $this->options['account'] . VERSION_URL;
+		$this->api_url = self::BASE_URL . $this->options['account'] . self::VERSION_URL;
 
 		$this->Auth = new Auth($this);
 		$this->Token = $this->Auth->Token();
