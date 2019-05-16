@@ -12,8 +12,7 @@ class Resource extends Client {
 	/**
 	 * Constructor.
 	 */
-	public function __construct($cianbox)
-	{
+	public function __construct($cianbox) {
 		$this->cianbox = $cianbox;
 	}
 

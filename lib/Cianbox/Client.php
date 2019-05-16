@@ -1,4 +1,5 @@
 <?php
+
 namespace Cianbox;
 
 use Cianbox\Error as Errors;
@@ -11,7 +12,6 @@ use Cianbox\Error as Errors;
 class Client {
 	public function request($method, $url, $access_token, $data = NULL) {
 		try {
-
 			$url_params = '';
 			
 			if( is_array($data) ) {
@@ -19,11 +19,10 @@ class Client {
 					( isset($access_token) && !empty($access_token) )
 				) $data['access_token'] = $access_token;
 
-				$url_params = http_build_query($data);
+				$url_params = '?'.http_build_query($data);
 			}
 
-
-			$headers= array("Content-Type" => "application/json", "Accept" => "application/json");
+			$headers = array("Content-Type" => "application/json", "Accept" => "application/json");
 			$options = array(
 				'timeout' => 120
 			);
@@ -52,7 +51,7 @@ class Client {
 			throw new Errors\NotFound();
 		}
 		if ($response->status_code == 403) {
-			throw new Errors\InvalidApiKey();
+			throw new Errors\InvalidOptions();
 		}
 		if ($response->status_code == 405) {
 			throw new Errors\MethodNotAllowed();

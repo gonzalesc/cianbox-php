@@ -11,6 +11,7 @@ use Cianbox\Error as Errors;
 class Cianbox {
 	public $options;
 	public $api_url;
+	protected $dataToken;
 	/**
 	 * BASE URL for default
 	 */
@@ -18,7 +19,7 @@ class Cianbox {
 	/**
 	* VERSION URL for default
 	*/
-	const VERSION_URL = "api/v2/";
+	const VERSION_URL = "/api/v2";
 	/**
 	 * Constructor.
 	 *
@@ -48,12 +49,15 @@ class Cianbox {
 		$this->api_url = self::BASE_URL . $this->options['account'] . self::VERSION_URL;
 
 		$this->Auth = new Auth($this);
-		$this->Token = $this->Auth->Token();
+		$this->dataToken = $this->Auth->CreateToken();
+		$this->Token = isset($this->dataToken->body->access_token) ? $this->dataToken->body->access_token :'';
 
 		if( !$this->Token ) {
 			throw new Errors\InvalidToken();
 		}
 
 		$this->Products = new Products($this);
+		$this->Brands = new Brands($this);
 	}
 }
+

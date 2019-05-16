@@ -16,7 +16,7 @@ class Auth extends Resource {
 	 *
 	 * @return get a Charge.
 	 */
-	public function Token() {
-		return $this->request("GET", self::URL_AUTH, '', $this->cianbox);
+	public function CreateToken() {
+		return $this->request("POST", self::URL_AUTH, '', $this->cianbox->options);
 	}
 }

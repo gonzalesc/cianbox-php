@@ -7,9 +7,9 @@ namespace Cianbox;
  *
  * @package Cianbox
  */
-class Products extends Resource {
+class Brands extends Resource {
 
-	const URL_PRODUCTS = "/productos";
+	const URL_BRANDS = "/productos/marcas";
 
 	/**
 	 * @param string|null $id
@@ -17,7 +17,7 @@ class Products extends Resource {
 	 * @return get a Product.
 	 */
 	public function get($options = NULL) {
-		return $this->request("GET", self::URL_PRODUCTS, $this->cianbox->Token, $options);
+		return $this->request("GET", self::URL_BRANDS, $this->cianbox->Token, $options);
 	}
 
 }
