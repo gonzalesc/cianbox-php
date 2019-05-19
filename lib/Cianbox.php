@@ -20,3 +20,5 @@ include_once dirname(__FILE__).'/Cianbox/Resource.php';
 // Cianbox API
 include_once dirname(__FILE__).'/Cianbox/Auth.php';
 include_once dirname(__FILE__).'/Cianbox/Products.php';
+//include_once dirname(__FILE__).'/Cianbox/Prices.php';
+//include_once dirname(__FILE__).'/Cianbox/Subsidiaries.php';

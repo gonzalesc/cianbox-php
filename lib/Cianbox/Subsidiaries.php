@@ -7,9 +7,9 @@ namespace Cianbox;
  *
  * @package Cianbox
  */
-class Subsidiary  extends Resource {
+class Subsidiaries extends Resource {
 
-	const URL_SUBSIDIARY = "/productos/sucursales";
+	const URL_SUBSIDIARIES = "/productos/sucursales";
 
 	/**
 	 * @param string|null $id
@@ -17,7 +17,7 @@ class Subsidiary  extends Resource {
 	 * @return get a Product.
 	 */
 	public function get($options = NULL) {
-		return $this->request("GET", self::URL_SUBSIDIARY, $this->cianbox->Auth->GetToken(), $options);
+		return $this->request("GET", self::URL_SUBSIDIARIES, $this->cianbox->Auth->GetToken(), $options);
 	}
 
 }

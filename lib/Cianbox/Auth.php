@@ -2,6 +2,8 @@
 
 namespace Cianbox;
 
+use Cianbox\Error as Errors;
+
 /**
  * Class Auth
  *
@@ -10,6 +12,7 @@ namespace Cianbox;
 class Auth extends Resource {
 
 	protected $Token = null;
+	protected $DataToken;
 
 	const URL_AUTH = "/auth/credentials";
 
@@ -30,10 +33,12 @@ class Auth extends Resource {
 		if( !is_null($this->Token) )
 			return $this->Token;
 
-		$this->Token = $this->CreateToken()->body->access_token;
-		
-		if( !$this->Token )
+		$this->DataToken = $this->CreateToken();
+
+		if( !isset($this->DataToken->body->access_token) )
 			throw new Errors\InvalidToken();
+		
+		$this->Token = $this->DataToken->body->access_token;
 
 		return $this->Token;
 	}

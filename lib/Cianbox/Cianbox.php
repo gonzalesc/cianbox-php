@@ -52,7 +52,7 @@ class Cianbox {
 		$this->Products = new Products($this);
 		$this->Brands = new Brands($this);
 		$this->Prices = new Prices($this);
-		$this->Subsidiary = new Subsidiary($this);
+		$this->Subsidiaries = new Subsidiaries($this);
 	}
 }
 
