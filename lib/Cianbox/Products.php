@@ -17,7 +17,7 @@ class Products extends Resource {
 	 * @return get a Product.
 	 */
 	public function get($options = NULL) {
-		return $this->request("GET", self::URL_PRODUCTS, $this->cianbox->Token, $options);
+		return $this->request("GET", self::URL_PRODUCTS, $this->cianbox->Auth->GetToken(), $options);
 	}
 
 }

@@ -49,15 +49,10 @@ class Cianbox {
 		$this->api_url = self::BASE_URL . $this->options['account'] . self::VERSION_URL;
 
 		$this->Auth = new Auth($this);
-		$this->dataToken = $this->Auth->CreateToken();
-		$this->Token = isset($this->dataToken->body->access_token) ? $this->dataToken->body->access_token :'';
-
-		if( !$this->Token ) {
-			throw new Errors\InvalidToken();
-		}
-
 		$this->Products = new Products($this);
 		$this->Brands = new Brands($this);
+		$this->Prices = new Prices($this);
+		$this->Subsidiary = new Subsidiary($this);
 	}
 }
 
