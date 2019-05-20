@@ -50,6 +50,7 @@ class Cianbox {
 
 		$this->Auth = new Auth($this);
 		$this->Products = new Products($this);
+		$this->Categories = new Categories($this);
 		$this->Brands = new Brands($this);
 		$this->Prices = new Prices($this);
 		$this->Subsidiaries = new Subsidiaries($this);

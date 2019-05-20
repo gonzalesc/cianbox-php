@@ -20,6 +20,11 @@ class Client {
 				) $data['access_token'] = $access_token;
 
 				$url_params = '?'.http_build_query($data);
+			
+			} elseif( isset($access_token) && !empty($access_token) ) {
+				
+				$data['access_token'] = $access_token;
+				$url_params = '?'.http_build_query($data);
 			}
 
 			$headers = array("Content-Type" => "application/json", "Accept" => "application/json");
