@@ -7,7 +7,7 @@ namespace Cianbox;
  *
  * @package Cianbox
  */
-class Cateogries extends Resource {
+class Categories extends Resource {
 
 	const URL_BRANDS = "/productos/categorias";
 
