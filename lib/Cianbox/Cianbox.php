@@ -54,6 +54,7 @@ class Cianbox {
 		$this->Brands = new Brands($this);
 		$this->Prices = new Prices($this);
 		$this->Subsidiaries = new Subsidiaries($this);
+		$this->Webhooks = new Webhooks($this);
 	}
 }
 
