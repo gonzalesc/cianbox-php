@@ -34,7 +34,7 @@ class Client {
 			if($method == "GET") {
 				$response = \Requests::get($this->cianbox->api_url . $url . $url_params, $headers, $options);
 			} else if($method == "POST") {
-				$response = \Requests::post($this->cianbox->api_url . $url, $headers, json_encode($data), $options);
+				$response = \Requests::post($this->cianbox->api_url . $url . $url_params, $headers, json_encode($data), $options);
 			} else if($method == "PATCH") {
 				$response = \Requests::patch($this->cianbox->api_url . $url, $headers, json_encode($data), $options);
 			} else if($method == "DELETE") {

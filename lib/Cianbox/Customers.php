@@ -9,15 +9,13 @@ namespace Cianbox;
  */
 class Customers extends Resource {
 
-	const URL_CUSTOMERS = "/clientes/alta";
-
 	/**
 	 * @param string|null $id
 	 *
 	 * @return get a Product.
 	 */
 	public function get($options = NULL) {
-		return $this->request("GET", self::URL_CUSTOMERS, $this->cianbox->Auth->GetToken(), $options);
+		return $this->request("GET", '/clientes', $this->cianbox->Auth->GetToken(), $options);
 	}
 
 	/**
@@ -26,7 +24,7 @@ class Customers extends Resource {
      * @return create Customer response.
      */
     public function create($options = NULL) {
-        return $this->request("POST", self::URL_CUSTOMERS, $this->cianbox->Auth->GetToken(), $options);
+        return $this->request("POST", '/clientes/alta', $this->cianbox->Auth->GetToken(), $options);
     }
 
 }

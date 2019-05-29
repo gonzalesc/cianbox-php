@@ -9,7 +9,7 @@ namespace Cianbox;
  */
 class Webhooks extends Resource {
 
-	const URL_WEBHOOKS = "/notificaciones";
+	//const URL_WEBHOOKS = "/notificaciones";
 
 	/**
 	 * @param string|null $id
@@ -17,7 +17,7 @@ class Webhooks extends Resource {
 	 * @return get a Product.
 	 */
 	public function get($options = NULL) {
-		return $this->request("GET", self::URL_WEBHOOKS . '/lista', $this->cianbox->Auth->GetToken(), $options);
+		return $this->request("GET", '/general/notificaciones', $this->cianbox->Auth->GetToken(), $options);
 	}
 
 	/**
@@ -26,7 +26,7 @@ class Webhooks extends Resource {
      * @return create Customer response.
      */
     public function create($options = NULL) {
-        return $this->request("POST", self::URL_WEBHOOKS . '/alta', $this->cianbox->Auth->GetToken(), $options);
+        return $this->request("POST", '/general/notificaciones/alta', $this->cianbox->Auth->GetToken(), $options);
     }
 
 }
