@@ -13,24 +13,26 @@ class Client {
 	public function request($method, $url, $access_token, $data = NULL) {
 		try {
 			$url_params = '';
-			
-			if( is_array($data) ) {
-				if( ( !isset($data['access_token']) || empty($data['access_token']) ) &&
-					( isset($access_token) && !empty($access_token) )
-				) $data['access_token'] = $access_token;
 
-				$url_params = '?'.http_build_query($data);
-			
-			} elseif( isset($access_token) && !empty($access_token) ) {
+			if( ! empty( $access_token ) ) {
+
+				if( $method == 'POST' ) {
 				
-				$data['access_token'] = $access_token;
-				$url_params = '?'.http_build_query($data);
+					$url_params = '?' . http_build_query( [ 'access_token' => $access_token ] );
+				
+				} elseif( is_null( $data ) || is_array( $data ) ) {
+					
+					$data['access_token'] = $access_token;
+					$url_params = '?'. http_build_query( $data );
+
+				} else
+					$url_params = '?' . $data . '&' . 'access_token=' . $access_token;
 			}
 
-			$headers = array("Content-Type" => "application/json", "Accept" => "application/json");
-			$options = array(
-				'timeout' => 120
-			);
+
+			$headers = [ "Content-Type" => "application/json", "Accept" => "application/json" ];
+			$options = [ 'timeout' => 120 ];
+
 			if($method == "GET") {
 				$response = \Requests::get($this->cianbox->api_url . $url . $url_params, $headers, $options);
 			} else if($method == "POST") {
