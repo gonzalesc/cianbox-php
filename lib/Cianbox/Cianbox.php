@@ -49,6 +49,7 @@ class Cianbox {
 		$this->api_url = self::BASE_URL . $this->options['account'] . self::VERSION_URL;
 
 		$this->Auth = new Auth($this);
+		$this->Places = new Places($this);
 		$this->Products = new Products($this);
 		$this->Categories = new Categories($this);
 		$this->Brands = new Brands($this);
