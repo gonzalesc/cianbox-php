@@ -59,6 +59,8 @@ class Cianbox {
 		$this->Webhooks = new Webhooks($this);
 		$this->Customers = new Customers($this);
 		$this->Orders = new Orders($this);
+		$this->BankAccounts = new BankAccounts($this);
+		$this->Invoices = new Invoices($this);
 	}
 }
 
