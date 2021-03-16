@@ -19,6 +19,15 @@ class Client {
 				if( $method == 'POST' ) {
 				
 					$url_params = '?' . http_build_query( [ 'access_token' => $access_token ] );
+
+				} elseif( $method == 'PUT' ) {
+
+					$url_params = '?' . http_build_query( [
+						'id'			=> $data['id'],
+						'access_token'	=> $access_token,
+					] );
+
+					unset( $data['id'] );
 				
 				} elseif( is_null( $data ) || is_array( $data ) ) {
 					
@@ -37,8 +46,8 @@ class Client {
 				$response = \Requests::get($this->cianbox->api_url . $url . $url_params, $headers, $options);
 			} else if($method == "POST") {
 				$response = \Requests::post($this->cianbox->api_url . $url . $url_params, $headers, json_encode($data), $options);
-			} else if($method == "PATCH") {
-				$response = \Requests::patch($this->cianbox->api_url . $url, $headers, json_encode($data), $options);
+			} else if($method == "PUT") {
+				$response = \Requests::put($this->cianbox->api_url . $url . $url_params, $headers, json_encode($data), $options);
 			} else if($method == "DELETE") {
 				$response = \Requests::delete($this->cianbox->api_url . $url . $url_params, $headers, $options);
 			}
