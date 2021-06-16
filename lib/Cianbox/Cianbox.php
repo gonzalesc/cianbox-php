@@ -52,6 +52,7 @@ class Cianbox {
 		$this->Places = new Places($this);
 		$this->Products = new Products($this);
 		$this->Categories = new Categories($this);
+		$this->Currencies = new Currencies($this);
 		$this->Brands = new Brands($this);
 		$this->Prices = new Prices($this);
 		$this->Statuses = new Statuses($this);
